@@ -1,4 +1,4 @@
-package com.im.common.cache;
+package com.im.common.cache.distribute;
 
 import java.time.Duration;
 import java.util.List;
