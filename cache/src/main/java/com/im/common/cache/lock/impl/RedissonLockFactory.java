@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * 配置项：cache.distributed.redisson.enabled=true 时启用此实现。
  */
 @Component
-@ConditionalOnProperty(name = "cache.distributed.redisson.enabled", havingValue = "true", matchIfMissing = false)
+@ConditionalOnProperty(name = "cache.distributed.redisson.enabled", havingValue = "true")
 public class RedissonLockFactory implements DistributedLockFactory {
 
     @Autowired

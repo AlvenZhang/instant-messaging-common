@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * 配置项：cache.distributed.type=redis 时启用此实现。
  */
 @Component
-@ConditionalOnProperty(name = "cache.distributed.type", havingValue = "redis", matchIfMissing = false)
+@ConditionalOnProperty(name = "cache.distributed.type", havingValue = "redis")
 public class RedisCache implements DistributedCache {
 
     @Autowired

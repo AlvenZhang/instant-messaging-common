@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
  * 配置项：cache.distributed.type=redis 时启用此配置。
  */
 @Configuration
-@ConditionalOnProperty(name = "cache.distributed.type", havingValue = "redis", matchIfMissing = false)
+@ConditionalOnProperty(name = "cache.distributed.type", havingValue = "redis")
 public class RedisConfig {
 
     @Value("${spring.redis.host:localhost}")
