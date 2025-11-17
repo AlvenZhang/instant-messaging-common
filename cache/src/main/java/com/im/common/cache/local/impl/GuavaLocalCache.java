@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentMap;
  * 配置项：cache.local.type=guava 时启用此实现。
  */
 @Component
-@ConditionalOnProperty(name = "cache.local.type", havingValue = "guava", matchIfMissing = false)
+@ConditionalOnProperty(name = "cache.local.type", havingValue = "guava")
 public class GuavaLocalCache implements LocalCache {
 
     /**
