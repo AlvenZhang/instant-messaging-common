@@ -11,23 +11,23 @@ import java.util.Objects;
  */
 public class SessionInfo implements Serializable {
     /** 用户唯一标识 */
-    private String userId;
+    private Long userId;
     /** 用户终端类型 */
     private TerminalType terminal;
 
     public SessionInfo() {
     }
 
-    public SessionInfo(String userId, TerminalType terminal) {
+    public SessionInfo(Long userId, TerminalType terminal) {
         this.userId = userId;
         this.terminal = terminal;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
