@@ -30,15 +30,15 @@ public class RedisCache implements DistributedCache {
     private static final String LOGICAL_EXPIRE_SUFFIX = ":logical_expire";
 
     @Override
-    public void set(String key, String value) {
+    public void set(String key, Object value) {
         if (!StringUtils.hasText(key)) {
             throw new IllegalArgumentException("Key cannot be null or empty");
         }
-        stringRedisTemplate.opsForValue().set(key, value);
+        stringRedisTemplate.opsForValue().set(key, this.getValue(value));
     }
 
     @Override
-    public void set(String key, String value, Duration ttl) {
+    public void set(String key, Object value, Duration ttl) {
         if (!StringUtils.hasText(key)) {
             throw new IllegalArgumentException("Key cannot be null or empty");
         }
@@ -47,7 +47,7 @@ public class RedisCache implements DistributedCache {
             set(key, value);
             return;
         }
-        stringRedisTemplate.opsForValue().set(key, value, ttl.toMillis(), TimeUnit.MILLISECONDS);
+        stringRedisTemplate.opsForValue().set(key, this.getValue(value), ttl.toMillis(), TimeUnit.MILLISECONDS);
     }
 
     @Override

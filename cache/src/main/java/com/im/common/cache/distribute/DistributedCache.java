@@ -1,5 +1,8 @@
 package com.im.common.cache.distribute;
 
+import cn.hutool.json.JSONUtil;
+import com.im.common.cache.distribute.convert.TypeConvert;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +19,7 @@ public interface DistributedCache {
      * @param key 缓存键
      * @param value 缓存值（建议为 JSON 字符串或可序列化文本）
      */
-    void set(String key, String value);
+    void set(String key, Object value);
 
     /**
      * 根据 key 设置缓存并设置过期时间（TTL）。
@@ -24,7 +27,7 @@ public interface DistributedCache {
      * @param value 缓存值（建议为 JSON 字符串或可序列化文本）
      * @param ttl 过期时间（TTL），到期后缓存将自动失效
      */
-    void set(String key, String value, Duration ttl);
+    void set(String key, Object value, Duration ttl);
 
     /**
      * 设置指定 key 的过期时间（TTL）。
@@ -80,4 +83,8 @@ public interface DistributedCache {
      * @return 删除是否成功
      */
     boolean delete(String key);
+
+    default String getValue(Object value){
+        return TypeConvert.isSimpleType(value) ? String.valueOf(value) : JSONUtil.toJsonStr(value);
+    }
 }
