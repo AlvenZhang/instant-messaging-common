@@ -4,11 +4,11 @@
     <parent>
         <groupId>com.github.instant-messaging</groupId>
         <artifactId>instant-messaging-common</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
     <artifactId>common</artifactId>
     <name>common</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <url>http://maven.apache.org</url>
 
     <properties>
